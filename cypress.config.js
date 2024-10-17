@@ -6,6 +6,7 @@ module.exports = defineConfig({
       // implement node event listeners here
     },
     defaultCommandTimeout: 50000,
-    baseUrl: "https://portal.pucrs.br"
+    baseUrl: "http://localhost:3000"
   },
+    video: true 
 });

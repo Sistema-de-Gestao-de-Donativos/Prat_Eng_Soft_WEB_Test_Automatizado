@@ -40,7 +40,7 @@ Cypress.Commands.add("buscaFuncaoAbrigo", () => {
 });
 
 Cypress.Commands.add("buscaUsuario", () => {
-    cy.get("#search-query").type('Gabriel');
+    cy.get('input[name="user_id"]').type('1');
     cy.get('.search-button').click();
     cy.get('#user-list tbody tr:first-child td:first-child').should('have.text', 'Gabriel');
 
@@ -62,27 +62,43 @@ Cypress.Commands.add("cadastraAbrigo", () => {
 Cypress.Commands.add("cadastraUsuario", () => {
     cy.get('#name').type('Zézinho do Teste')
     cy.get('#email').type('zeteste@gmail.com')
-    cy.get('#password').type('zeca123')
+    cy.get('#phone').type('51999999999')
+    cy.get('#cpf').type('47484737038')
+    cy.get('#codEntidade').type('1')
+    cy.get('#country').type('Brasil')
+    cy.get('#state').type('Rio Grande do Sul')
+    cy.get('#city').type('Porto Alegre')
+    cy.get('#neighborhood').type('Partenon')
+    cy.get('#street').type('Avenida Ipiranga')
+    cy.get('#number').type('6681')
     cy.get('.register-button').click()
 });
 
 Cypress.Commands.add("cadastraAdmin", () => {
     cy.get('#name').type('Zézinho do Teste')
     cy.get('#email').type('zeteste@gmail.com')
-    cy.get('#password').type('zeca123')
-    cy.get('select#shelter').select('Abrigo 1')
+    cy.get('#phone').type('51999999999')
+    cy.get('#cpf').type('47484737038')
+    cy.get('#codEntidade').type('1')
+    cy.get('select#role').select('Admin CD')
+    cy.get('#country').type('Brasil')
+    cy.get('#state').type('Rio Grande do Sul')
+    cy.get('#city').type('Porto Alegre')
+    cy.get('#neighborhood').type('Partenon')
+    cy.get('#street').type('Avenida Ipiranga')
+    cy.get('#number').type('6681')
     cy.get('.register-button').click()
 });
 
 Cypress.Commands.add("cadastraCD", () => {
     cy.get('.menu-button').first().click()
     cy.get('#name').type('Centro de Teste')
-    cy.get('#country').type('Brasil')
-    cy.get('select#state').select('Rio Grande do Sul')
-    cy.get('#city').type('Porto Alegre')
-    cy.get('#neighborhood').type('Partenon')
-    cy.get('#street').type('Avenida Ipiranga')
-    cy.get('#number').type('6681')
+    cy.get('#address\\.country').type('Brasil')
+    cy.get('select#address\\.state').select('Rio Grande do Sul')
+    cy.get('#address\\.city').type('Porto Alegre')
+    cy.get('#address\\.neighborhood').type('Partenon')
+    cy.get('#address\\.street').type('Avenida Ipiranga')
+    cy.get('#address\\.number').type('6681')
     cy.get('#phone').type('5133203500')
     cy.get('#email').type('puc@edu.pucrs.br')
     cy.get('button[type="submit"]').contains('Enviar').click();
